@@ -2,6 +2,7 @@ package be.vdab.personeel.domain;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "jobtitels")
 public class Jobtitel {

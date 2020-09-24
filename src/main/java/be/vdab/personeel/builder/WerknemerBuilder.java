@@ -18,7 +18,6 @@ public class WerknemerBuilder {
     private String paswoord;
     private LocalDate geboorte;
     private BigInteger rijksregisternr;
-    private long versie;
     private Jobtitel jobtitel;
     private Werknemer manager;
     private Set<Werknemer> ondergeschikten;
@@ -63,11 +62,6 @@ public class WerknemerBuilder {
         return this;
     }
 
-    public WerknemerBuilder metVersie(long versie) {
-        this.versie = versie;
-        return this;
-    }
-
     public WerknemerBuilder metJobtitel(Jobtitel jobtitel) {
         this.jobtitel = jobtitel;
         return this;
@@ -86,7 +80,7 @@ public class WerknemerBuilder {
     public Werknemer maakWerknemer() {
         return new Werknemer(familienaam, voornaam, email, chefid,
                 salaries, paswoord, geboorte,
-                rijksregisternr, versie, jobtitel,
+                rijksregisternr, jobtitel,
                 manager);
     }
 }

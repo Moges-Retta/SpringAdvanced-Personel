@@ -27,7 +27,6 @@ public class WerknemerTest {
                 .metSalaries(BigDecimal.ONE)
                 .metRijksregisternr(BigInteger.ONE)
                 .metChefid(1)
-                .metVersie(1L)
                 .metManager(new Werknemer())
                 .metOndergeschikten()
                 .maakWerknemer();

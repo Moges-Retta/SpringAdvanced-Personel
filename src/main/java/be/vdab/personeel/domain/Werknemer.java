@@ -42,7 +42,7 @@ public class Werknemer {
 
     public Werknemer(String familienaam, String voornaam, String email, long chefid,
                      BigDecimal salaries, String paswoord, LocalDate geboorte,
-                     BigInteger rijksregisternr, long versie, Jobtitel jobtitel,
+                     BigInteger rijksregisternr, Jobtitel jobtitel,
                      Werknemer manager) {
         this.familienaam = familienaam;
         this.voornaam = voornaam;
@@ -52,7 +52,6 @@ public class Werknemer {
         this.paswoord = paswoord;
         this.geboorte = geboorte;
         this.rijksregisternr = rijksregisternr;
-        this.versie = versie;
         this.jobtitel = jobtitel;
         this.manager = manager;
         this.ondergeschikten = new HashSet<>();
