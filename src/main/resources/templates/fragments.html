@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+</head>
+<body>
+<div xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head(title)">
+        <title th:text="${title}"></title>
+        <link rel="icon" th:href="@{/images/personeel.ico}" type="image/x-icon">
+        <link rel="stylesheet" th:href="@{/css/mail.css}">
+    </head>
+</div>
+</body>
+</html>

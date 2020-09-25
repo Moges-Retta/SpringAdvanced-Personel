@@ -2,11 +2,9 @@ package be.vdab.personeel.domain;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -18,11 +16,9 @@ public class Werknemer {
     private String familienaam;
     private String voornaam;
     private String email;
-    private long chefid;
-    private BigDecimal salaries;
+    private BigDecimal salaris;
     private String paswoord;
     private LocalDate geboorte;
-    private BigInteger rijksregisternr;
     @Version
     private long versie;
 
@@ -32,28 +28,26 @@ public class Werknemer {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "chefid")
-    private Werknemer manager;
+    private Werknemer chef;
 
-    @OneToMany(mappedBy = "manager")
+    @OneToMany(mappedBy = "chef")
     private Set<Werknemer> ondergeschikten;
 
     protected Werknemer() {
     }
 
-    public Werknemer(String familienaam, String voornaam, String email, long chefid,
-                     BigDecimal salaries, String paswoord, LocalDate geboorte,
-                     BigInteger rijksregisternr, Jobtitel jobtitel,
-                     Werknemer manager) {
+    public Werknemer(String familienaam, String voornaam, String email,
+                     BigDecimal salaris, String paswoord, LocalDate geboorte,
+                     Jobtitel jobtitel,
+                     Werknemer chef) {
         this.familienaam = familienaam;
         this.voornaam = voornaam;
         this.email = email;
-        this.chefid = chefid;
-        this.salaries = salaries;
+        this.salaris = salaris;
         this.paswoord = paswoord;
         this.geboorte = geboorte;
-        this.rijksregisternr = rijksregisternr;
         this.jobtitel = jobtitel;
-        this.manager = manager;
+        this.chef = chef;
         this.ondergeschikten = new HashSet<>();
     }
 
@@ -65,12 +59,8 @@ public class Werknemer {
         return email;
     }
 
-    public long getChefid() {
-        return chefid;
-    }
-
-    public BigDecimal getSalaries() {
-        return salaries;
+    public BigDecimal getSalaris() {
+        return salaris;
     }
 
     public String getPaswoord() {
@@ -79,10 +69,6 @@ public class Werknemer {
 
     public LocalDate getGeboorte() {
         return geboorte;
-    }
-
-    public BigInteger getRijksregisternr() {
-        return rijksregisternr;
     }
 
     public long getVersie() {
@@ -97,8 +83,8 @@ public class Werknemer {
         return jobtitel;
     }
 
-    public Werknemer getManager() {
-        return manager;
+    public Werknemer getChef() {
+        return chef;
     }
 
     public Set<Werknemer> getOndergeschikten() {
@@ -111,21 +97,19 @@ public class Werknemer {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (!(o instanceof Werknemer)) return false;
-        Werknemer werknemer = (Werknemer) o;
-        return Objects.equals(email, werknemer.email);
+        return email.equalsIgnoreCase(((Werknemer) o).email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(email);
+        return  email == null ? 0 : email.toLowerCase().hashCode();
     }
-    // geeft opsalg aan de werknemer
+    // verhoog de salaries met een bedrag
     public void opslag(BigDecimal bedrag){
         if (bedrag.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException();
         }
-        salaries = salaries.add(bedrag);
+        salaris = salaris.add(bedrag);
     }
 }

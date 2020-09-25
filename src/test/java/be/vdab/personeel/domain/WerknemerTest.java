@@ -24,9 +24,7 @@ public class WerknemerTest {
                 .metGeboorte(LocalDate.of(2000,1,1))
                 .metJobtitel(new Jobtitel("test"))
                 .metPaswoord("test")
-                .metSalaries(BigDecimal.ONE)
-                .metRijksregisternr(BigInteger.ONE)
-                .metChefid(1)
+                .metSalaris(BigDecimal.ONE)
                 .metManager(new Werknemer())
                 .metOndergeschikten()
                 .maakWerknemer();
@@ -34,7 +32,7 @@ public class WerknemerTest {
     @Test
     void opslag() {
         werknemer.opslag(BigDecimal.TEN);
-        assertThat(werknemer.getSalaries()).isEqualByComparingTo("11");
+        assertThat(werknemer.getSalaris()).isEqualByComparingTo("11");
     }
     @Test
     void opslagMetNullMislukt() {

@@ -14,10 +14,9 @@ public class WerknemerBuilder {
     private String voornaam;
     private String email;
     private long chefid;
-    private BigDecimal salaries;
+    private BigDecimal salaris;
     private String paswoord;
     private LocalDate geboorte;
-    private BigInteger rijksregisternr;
     private Jobtitel jobtitel;
     private Werknemer manager;
     private Set<Werknemer> ondergeschikten;
@@ -37,13 +36,8 @@ public class WerknemerBuilder {
         return this;
     }
 
-    public WerknemerBuilder metChefid(int chefid) {
-        this.chefid = chefid;
-        return this;
-    }
-
-    public WerknemerBuilder metSalaries(BigDecimal salaries) {
-        this.salaries = salaries;
+    public WerknemerBuilder metSalaris(BigDecimal salaris) {
+        this.salaris = salaris;
         return this;
     }
 
@@ -54,11 +48,6 @@ public class WerknemerBuilder {
 
     public WerknemerBuilder metGeboorte(LocalDate geboorte) {
         this.geboorte = geboorte;
-        return this;
-    }
-
-    public WerknemerBuilder metRijksregisternr(BigInteger rijksregisternr) {
-        this.rijksregisternr = rijksregisternr;
         return this;
     }
 
@@ -78,9 +67,9 @@ public class WerknemerBuilder {
     }
 
     public Werknemer maakWerknemer() {
-        return new Werknemer(familienaam, voornaam, email, chefid,
-                salaries, paswoord, geboorte,
-                rijksregisternr, jobtitel,
+        return new Werknemer(familienaam, voornaam, email,
+                salaris, paswoord, geboorte,
+                 jobtitel,
                 manager);
     }
 }

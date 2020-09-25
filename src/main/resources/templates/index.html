@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title='Werknemers')"></head>
+<body>
+<h1>Menu</h1>
+<ul th:if="${chef}" th:object="${chef}">
+    <li><a th:href="@{/Werknemershierarchie/{id}(id=*{id})}">Werknemershiërarchie</a></li>
+    <li><a th:href="@{/Jobtitels}">Jobtitels</a></li>
+</ul>
+</body>
+</html>

@@ -1,6 +1,9 @@
 package be.vdab.personeel.domain;
 
 import javax.persistence.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -12,11 +15,14 @@ public class Jobtitel {
     private String naam;
     @Version
     private long versie;
+    @OneToMany(mappedBy = "jobtitel")
+    private Set<Werknemer> werknemers;
 
     protected Jobtitel(){}
 
     public Jobtitel(String naam) {
         this.naam = naam;
+        this.werknemers=new HashSet<>();
     }
 
     public long getId() {
@@ -29,5 +35,9 @@ public class Jobtitel {
 
     public long getVersie() {
         return versie;
+    }
+
+    public Set<Werknemer> getWerknemers() {
+        return Collections.unmodifiableSet(werknemers);
     }
 }
