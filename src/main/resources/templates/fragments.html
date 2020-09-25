@@ -9,6 +9,11 @@
         <link rel="icon" th:href="@{/images/personeel.ico}" type="image/x-icon">
         <link rel="stylesheet" th:href="@{/css/mail.css}">
     </head>
+    <div th:fragment="home">
+        <a th:href="@{/}">Home</a>
+        <form method="post" th:action="@{/logout}">
+            <button>Uitloggen</button> </form>
+    </div>
 </div>
 </body>
 </html>

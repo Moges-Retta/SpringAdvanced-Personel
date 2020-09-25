@@ -2,6 +2,8 @@
 <html lang="nl" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments::head(title='Werknemers')"></head>
 <body>
+<div th:replace="fragments::home"></div>
+
 <div th:if="${werknemer}" th:object="${werknemer}">
     <h1 th:text="|Opslag voor *{familienaam} *{voornaam}|"></h1>
     <dt>Hudige Salaris</dt>

@@ -2,6 +2,7 @@
 <html lang="nl" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments::head(title='Jobtitels')"></head>
 <body>
+<div th:replace="fragments::home"></div>
 <nav th:if="${jobtitels}">
     <h1>Jobtitels</h1>
     <ul th:each="titel:${jobtitels}" th:object="${titel}">
