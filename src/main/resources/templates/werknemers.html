@@ -29,7 +29,7 @@
             <dt>Foto</dt>
             <img th:src="@{/images/{id}.jpg(id=*{id})}" th:alt="*{id}">
             <div>
-                <a th:href="@{/opslag}">Opslag</a>
+                <a th:href="@{/opslag/{id}(id=*{id})}">Opslag</a>
             </div>
         </dl>
 </body>

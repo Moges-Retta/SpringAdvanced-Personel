@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin(login->login.loginPage("/login"));
         http.logout(logout->logout.logoutSuccessUrl("/"));
         http.authorizeRequests(requests -> requests
-                .mvcMatchers("/Werknemershierarchie").hasAnyAuthority("user")
+                .mvcMatchers("/Werknemershierarchie/**").hasAnyAuthority("user")
                 .mvcMatchers("/", "/login").permitAll());
     }
 }

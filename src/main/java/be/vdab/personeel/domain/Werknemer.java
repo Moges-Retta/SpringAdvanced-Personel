@@ -105,6 +105,7 @@ public class Werknemer {
     public int hashCode() {
         return  email == null ? 0 : email.toLowerCase().hashCode();
     }
+
     // verhoog de salaries met een bedrag
     public void opslag(BigDecimal bedrag){
         if (bedrag.compareTo(BigDecimal.ZERO) <= 0) {
