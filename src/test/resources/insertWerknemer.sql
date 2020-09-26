@@ -1,0 +1,2 @@
+insert into werknemers (familienaam,voornaam,email,chefid,jobtitelid,salaris,paswoord,geboorte,versie)
+values('test','test','test',1,(select id from jobtitels where naam='test'),1,'test','2020-01-01',0);
